@@ -1,0 +1,13 @@
+{
+  "name": "optimally-organic-theme",
+  "version": "1.0.0",
+  "description": "Optimally Organic WordPress Theme",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
+

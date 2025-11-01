@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Components */
+@layer components {
+  .luxury-accent-line {
+    @apply w-24 h-px bg-gradient-to-r from-transparent via-accent-gold to-transparent mx-auto;
+  }
+  
+  .luxury-divider-small {
+    @apply w-16 h-px bg-gradient-to-r from-transparent via-accent-gold to-transparent mx-auto my-4;
+  }
+}
+
