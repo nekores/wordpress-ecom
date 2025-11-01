@@ -1,0 +1,102 @@
+/* Additional Custom Styles */
+
+/* Benefits section styling is in main style.css */
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.extracts-description-section {
+    padding: 60px 0;
+    background: var(--light-bg);
+}
+
+.extracts-description-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.newsletter-form button {
+    padding: 12px 25px;
+}
+
+/* WooCommerce Overrides */
+.woocommerce .products-grid {
+    list-style: none;
+    padding: 0;
+}
+
+.woocommerce .products-grid li {
+    list-style: none;
+}
+
+.woocommerce .product-card {
+    text-decoration: none;
+    display: block;
+}
+
+.woocommerce .product-card .woocommerce-loop-product__title {
+    color: var(--text-color);
+}
+
+.woocommerce .price {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.woocommerce ul.products li.product .button,
+.woocommerce ul.products li.product .add_to_cart_button {
+    background: #E91E63;
+    color: var(--white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.woocommerce ul.products li.product .button:hover,
+.woocommerce ul.products li.product .add_to_cart_button:hover {
+    background: #C2185B;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cart-count {
+    background: var(--accent-color);
+    color: var(--white);
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
