@@ -37,10 +37,11 @@ body {
     font-size: 16px;
 }
 
-.container {
-    max-width: 1200px;
+/* Container - Use Tailwind classes instead: container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl */
+.container:not(.mx-auto) {
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1rem;
 }
 
 /* Header Styles */

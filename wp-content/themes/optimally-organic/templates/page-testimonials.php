@@ -16,7 +16,7 @@ $testimonials = optimally_organic_get_testimonials( get_the_ID() );
 <main id="main" class="site-main testimonials-page">
 	<!-- Hero Section -->
 	<section class="testimonials-hero">
-		<div class="container">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 			<div class="testimonials-hero-content">
 				<h1 class="page-title"><?php echo esc_html( $testimonials_title ); ?></h1>
 				<?php if ( $testimonials_subtitle ) : ?>
@@ -28,7 +28,7 @@ $testimonials = optimally_organic_get_testimonials( get_the_ID() );
 
 	<!-- Testimonials Grid Section -->
 	<section class="testimonials-grid-section">
-		<div class="container">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 			<?php if ( ! empty( $testimonials ) ) : ?>
 				<div class="testimonials-grid">
 					<?php foreach ( $testimonials as $testimonial ) : ?>

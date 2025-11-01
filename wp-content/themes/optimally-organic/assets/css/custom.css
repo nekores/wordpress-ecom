@@ -2,6 +2,53 @@
 
 /* Benefits section styling is in main style.css */
 
+/* Remove WooCommerce ::before and ::after pseudo-elements from products list */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after,
+.woocommerce ul.products.columns-3::before,
+.woocommerce ul.products.columns-3::after,
+.woocommerce ul.products.columns-2::before,
+.woocommerce ul.products.columns-2::after,
+.woocommerce ul.products.columns-4::before,
+.woocommerce ul.products.columns-4::after {
+	display: none !important;
+	content: none !important;
+	width: 0 !important;
+	height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+	position: absolute !important;
+	pointer-events: none !important;
+}
+
+/* Hide "View cart" link and checkmark icon on product cards */
+.woocommerce ul.products li.product .added_to_cart,
+.woocommerce ul.products li.product a.added_to_cart,
+.woocommerce ul.products li.product .wc-forward,
+.woocommerce ul.products li.product .added_to_cart.wc-forward {
+	display: none !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+	height: 0 !important;
+	width: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	pointer-events: none !important;
+}
+
+/* Remove checkmark icon from add to cart button */
+.woocommerce ul.products li.product .button.added::before,
+.woocommerce ul.products li.product .button.added::after,
+.woocommerce ul.products li.product .add_to_cart_button.added::before,
+.woocommerce ul.products li.product .add_to_cart_button.added::after {
+	display: none !important;
+	content: none !important;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 40px;

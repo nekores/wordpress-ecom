@@ -22,7 +22,7 @@ $about_image = get_post_meta( get_the_ID(), '_about_featured_image', true ) ?: '
 	<section class="about-hero-luxury">
 		<div class="about-hero-overlay"></div>
 		<div class="about-hero-pattern"></div>
-		<div class="container">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 			<div class="about-hero-content">
 				<div class="about-hero-text">
 					<div class="luxury-accent-line"></div>
@@ -51,7 +51,7 @@ $about_image = get_post_meta( get_the_ID(), '_about_featured_image', true ) ?: '
 
 	<!-- Main Content Section -->
 	<section class="about-content-section-luxury">
-		<div class="container">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 			<div class="luxury-content-wrapper">
 				<div class="luxury-content-left">
 					<div class="luxury-ornament">❊</div>
@@ -91,7 +91,7 @@ $about_image = get_post_meta( get_the_ID(), '_about_featured_image', true ) ?: '
 				<path d="M0,120 L1200,120 L1200,0 Q600,60 0,0 Z" fill="currentColor"></path>
 			</svg>
 		</div>
-		<div class="container">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 			<div class="mvv-grid-luxury">
 				<?php if ( $about_mission ) : ?>
 					<div class="mvv-card-luxury mission-card">

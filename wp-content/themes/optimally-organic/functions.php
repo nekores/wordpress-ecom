@@ -30,6 +30,10 @@ function optimally_organic_setup() {
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 	
+	// Enable WooCommerce AJAX add to cart by default
+	add_filter( 'woocommerce_product_single_add_to_cart_text', 'optimally_organic_single_add_to_cart_text' );
+	add_filter( 'woocommerce_product_add_to_cart_text', 'optimally_organic_add_to_cart_text' );
+	
 	// Register navigation menus
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'optimally-organic' ),
@@ -53,7 +57,21 @@ function optimally_organic_scripts() {
 	wp_enqueue_style( 'optimally-organic-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.1' );
 	
 	// Enqueue scripts
-	wp_enqueue_script( 'optimally-organic-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'optimally-organic-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '1.0.1', true );
+	
+	// Enqueue add to cart alert script
+	if ( class_exists( 'WooCommerce' ) ) {
+		// Ensure WooCommerce scripts are loaded first (WooCommerce auto-enqueues and localizes these)
+		// We don't need to enqueue or localize wc-add-to-cart manually - WooCommerce does this
+		
+		// Enqueue our custom add to cart alert script (depends on wc-add-to-cart which WooCommerce provides)
+		wp_enqueue_script( 'optimally-organic-add-to-cart-alert', get_template_directory_uri() . '/assets/js/add-to-cart-alert.js', array( 'jquery', 'wc-add-to-cart' ), '1.0.1', true );
+		
+		// Only localize additional data for our script (WooCommerce already provides wc_add_to_cart_params)
+		wp_localize_script( 'optimally-organic-add-to-cart-alert', 'optimally_organic_cart_params', array(
+			'cart_url' => wc_get_cart_url(),
+		) );
+	}
 	
 	// Localize script for AJAX
 	wp_localize_script( 'optimally-organic-script', 'ajax_object', array(
@@ -173,9 +191,43 @@ remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wra
  * Add Custom WooCommerce Wrapper
  */
 function optimally_organic_wrapper_start() {
-	echo '<div class="woocommerce-wrapper"><div class="container">';
+	echo '<div class="woocommerce-wrapper"><div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">';
 }
 add_action( 'woocommerce_before_main_content', 'optimally_organic_wrapper_start', 10 );
+
+/**
+ * Ensure WooCommerce AJAX add to cart is enabled
+ */
+function optimally_organic_enable_ajax_add_to_cart() {
+	// Enable AJAX add to cart for shop pages
+	if ( is_shop() || is_product_category() || is_product_tag() ) {
+		// WooCommerce AJAX add to cart should be enabled by default
+		// This filter ensures it works correctly
+		add_filter( 'woocommerce_product_supports', 'optimally_organic_product_supports_ajax_add_to_cart', 10, 3 );
+	}
+}
+add_action( 'wp', 'optimally_organic_enable_ajax_add_to_cart' );
+
+/**
+ * Ensure products support AJAX add to cart
+ */
+function optimally_organic_product_supports_ajax_add_to_cart( $supported, $feature, $product ) {
+	if ( $feature === 'ajax_add_to_cart' ) {
+		return true;
+	}
+	return $supported;
+}
+
+/**
+ * Customize add to cart button text
+ */
+function optimally_organic_single_add_to_cart_text( $text ) {
+	return $text;
+}
+
+function optimally_organic_add_to_cart_text( $text ) {
+	return $text;
+}
 
 function optimally_organic_wrapper_end() {
 	echo '</div></div>';

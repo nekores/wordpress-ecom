@@ -35,7 +35,7 @@ get_header();
 			<div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out <?php echo $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'; ?>" style="background-image: url('<?php echo esc_url( $slide['image'] ); ?>'); background-size: cover; background-position: center;">
 				<div class="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-primary/60"></div>
 				<div class="relative z-10 h-full flex items-center justify-center">
-					<div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+					<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center text-white">
 						<div class="max-w-4xl mx-auto space-y-6 animate-fade-in-up">
 							<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight drop-shadow-lg animate-fade-in-down">
 								<?php echo esc_html( $slide['title'] ); ?>

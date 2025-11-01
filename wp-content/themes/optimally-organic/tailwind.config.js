@@ -31,7 +31,7 @@ module.exports = {
         'fade-in-up': 'fadeInUp 0.8s ease-out',
         'fade-in-down': 'fadeInDown 0.8s ease-out',
         'slide-in-left': 'slideInLeft 0.8s ease-out',
-        'slide-in-right': 'slideInRight 0.8s ease-out',
+        'slide-in-right': 'slideInRight 0.3s ease-out',
         'scale-in': 'scaleIn 0.5s ease-out',
         'bounce-slow': 'bounce 2s infinite',
         'pulse-slow': 'pulse 3s infinite',

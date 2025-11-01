@@ -44,7 +44,7 @@ get_header( 'shop' );
 		</header>
 
 		<!-- Main Content Grid -->
-		<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+		<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full">
 			
 			<!-- Filter Sidebar -->
 			<aside id="shop-sidebar" class="lg:block hidden lg:col-span-1">
@@ -264,25 +264,69 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-/* Hide default WooCommerce shop loop wrapper */
+/* Hide default WooCommerce shop loop wrapper - override with Tailwind classes */
+.woocommerce ul.products.columns-3,
+.woocommerce ul.products.columns-2,
+.woocommerce ul.products.columns-4,
 .woocommerce ul.products {
 	display: grid !important;
-	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-	gap: 1.5rem !important;
+	grid-template-columns: repeat(1, 1fr) !important;
+	gap: 1rem !important;
 	list-style: none !important;
 	padding: 0 !important;
+	margin: 0 0 2rem 0 !important;
+	width: 100% !important;
+	clear: both !important;
+	float: none !important;
+}
+
+/* Remove ::before and ::after pseudo-elements that take up space */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after,
+.woocommerce ul.products.columns-3::before,
+.woocommerce ul.products.columns-3::after,
+.woocommerce ul.products.columns-2::before,
+.woocommerce ul.products.columns-2::after,
+.woocommerce ul.products.columns-4::before,
+.woocommerce ul.products.columns-4::after {
+	display: none !important;
+	content: none !important;
+	width: 0 !important;
+	height: 0 !important;
 	margin: 0 !important;
+	padding: 0 !important;
+	visibility: hidden !important;
+}
+
+.woocommerce ul.products li.product {
+	float: none !important;
+	clear: none !important;
+	width: 100% !important;
+	margin: 0 !important;
+	position: relative !important;
+	padding: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 @media (min-width: 640px) {
+	.woocommerce ul.products.columns-3,
+	.woocommerce ul.products.columns-2,
+	.woocommerce ul.products.columns-4,
 	.woocommerce ul.products {
 		grid-template-columns: repeat(2, 1fr) !important;
+		gap: 1rem !important;
 	}
 }
 
 @media (min-width: 1024px) {
+	.woocommerce ul.products.columns-3,
+	.woocommerce ul.products.columns-2,
+	.woocommerce ul.products.columns-4,
 	.woocommerce ul.products {
 		grid-template-columns: repeat(3, 1fr) !important;
+		gap: 1.5rem !important;
 	}
 }
 

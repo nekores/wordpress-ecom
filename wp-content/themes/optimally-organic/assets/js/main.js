@@ -96,13 +96,7 @@
             $(this).find('input[type="email"]').val('');
         });
 
-        // Update cart count on page load
-        if (typeof wc_add_to_cart_params !== 'undefined') {
-            $(document.body).on('added_to_cart', function() {
-                // Reload page or update cart count via AJAX
-                location.reload();
-            });
-        }
+        // Cart count update is handled by add-to-cart-alert.js
 
     });
 

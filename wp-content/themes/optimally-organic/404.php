@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <main id="main" class="site-main">
-	<div class="container">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 md:py-12">
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'optimally-organic' ); ?></h1>
